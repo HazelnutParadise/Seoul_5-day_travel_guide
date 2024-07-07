@@ -13,30 +13,11 @@
     }
 
     .sidebar {
-      max-width: 250px;
+      width: 250px;
     }
 
-    .main-content {
+    .content-container {
       max-width: 800px;
-      margin-left: 270px;
-    }
-
-    @media (max-width: 768px) {
-      .main-content {
-        margin-left: 0;
-      }
-
-      .sidebar {
-        display: none;
-      }
-
-      .sidebar-mobile {
-        display: block;
-      }
-
-      .main-content-mobile {
-        padding-top: 56px;
-      }
     }
   </style>
 </head>
@@ -72,7 +53,6 @@
       </ol>
     </div>
     <div class="content-container ml-auto p-8">
-      <!-- 內容部分 -->
       <h2 id="第1天" class="text-2xl font-semibold mt-8 mb-4">第1天</h2>
       <h3 id="松月洞童話村附近" class="text-xl font-semibold mb-2">松月洞童話村附近</h3>
       <ul class="list-disc ml-8 mb-4">
@@ -418,12 +398,13 @@
   </div>
 
   <script>
-    document.getElementById('sidebarToggle').addEventListener('click', function () {
-      const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    sidebarToggle.addEventListener('click', () => {
       sidebar.classList.toggle('-translate-x-full');
     });
   </script>
-  
 </body>
 
 </html>
