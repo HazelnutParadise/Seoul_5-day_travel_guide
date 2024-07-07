@@ -1,11 +1,9 @@
-// sw.js
-
 const CACHE_NAME = 'site-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/榛果繽紛樂.ico',
   '/榛果繽紛樂logo.png',
+  '/榛果繽紛樂.ico',
   'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css'
 ];
 
@@ -23,33 +21,24 @@ self.addEventListener('install', event => {
 // 攔截網絡請求並提供緩存資源
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // 如果在緩存中找到對應的資源，則返回它
-        if (response) {
-          return response;
-        }
+    fetch(event.request).then(response => {
+      // 檢查是否收到有效響應
+      if (!response || response.status !== 200 || response.type !== 'basic') {
+        return response;
+      }
 
-        // 否則，發送網絡請求
-        return fetch(event.request).then(
-          response => {
-            // 檢查是否收到有效響應
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
+      // 克隆響應
+      const responseToCache = response.clone();
 
-            // 克隆響應
-            const responseToCache = response.clone();
+      caches.open(CACHE_NAME)
+        .then(cache => {
+          cache.put(event.request, responseToCache);
+        });
 
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
-          }
-        );
-      })
+      return response;
+    }).catch(() => {
+      return caches.match(event.request);
+    })
   );
 });
 
