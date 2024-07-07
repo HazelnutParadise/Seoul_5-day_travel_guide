@@ -1,5 +1,9 @@
 # 首爾5天遊 - 綜合美食、購物與旅行指南
 
+<head>
+  <link rel="icon" href="榛果繽紛樂.ico" type="image/x-icon">
+</head>
+
 ## 目錄
 1. [第1天](#第1天)
 2. [第2天](#第2天)
