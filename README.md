@@ -1,6 +1,4 @@
-<head>
-  <link rel="icon" href="榛果繽紛樂.ico" type="image/x-icon">
-</head>
+<link rel="icon" href="榛果繽紛樂.ico" type="image/x-icon">
 
 # 首爾5天遊 - 綜合美食、購物與旅行指南
 
