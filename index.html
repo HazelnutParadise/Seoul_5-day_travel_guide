@@ -42,17 +42,22 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-
-  <header class="fixed top-0 left-0 w-full bg-white shadow p-4 z-10 flex items-center justify-between">
-    <h1 class="text-2xl font-bold">首爾5天遊 - 綜合美食、購物與旅行指南</h1>
-    <a href="https://home.hazelnut-paradise.com" class="inline-flex items-center px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+  <nav class="bg-blue-500 text-white p-4 flex justify-between items-center fixed w-full z-10">
+    <div class="flex items-center">
+      <button id="sidebarToggle" class="text-white focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <h1 class="text-2xl font-bold ml-4">首爾5天遊指南</h1>
+    </div>
+    <a href="https://home.hazelnut-paradise.com" class="inline-flex items-center px-4 py-2 bg-white text-blue-500 text-sm font-medium rounded-md shadow-sm hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
       <img src="榛果繽紛樂logo.png" class="h-6 w-6 mr-2">
       榛果繽紛樂
     </a>
-  </header>
-
-  <div class="flex">
-    <nav class="sidebar fixed top-16 left-0 h-full bg-white shadow p-4 overflow-auto">
+  </nav>
+  <div class="flex pt-16">
+    <div id="sidebar" class="sidebar bg-gray-200 p-4 h-full fixed lg:relative lg:translate-x-0 transform -translate-x-full transition-transform duration-300 ease-in-out">
       <h2 class="text-xl font-semibold mb-4">目錄</h2>
       <ol class="list-decimal ml-8">
         <li><a href="#第1天" class="text-blue-500 hover:underline">第1天</a></li>
@@ -65,22 +70,9 @@
         <li><a href="#交通小提醒" class="text-blue-500 hover:underline">交通小提醒</a></li>
         <li><a href="#文化禮儀小提醒" class="text-blue-500 hover:underline">文化禮儀小提醒</a></li>
       </ol>
-    </nav>
-    <nav class="sidebar-mobile fixed top-16 left-0 h-full bg-white shadow p-4 overflow-auto hidden">
-      <h2 class="text-xl font-semibold mb-4">目錄</h2>
-      <ol class="list-decimal ml-8">
-        <li><a href="#第1天" class="text-blue-500 hover:underline">第1天</a></li>
-        <li><a href="#第2天" class="text-blue-500 hover:underline">第2天</a></li>
-        <li><a href="#第3天" class="text-blue-500 hover:underline">第3天</a></li>
-        <li><a href="#第4天" class="text-blue-500 hover:underline">第4天</a></li>
-        <li><a href="#特色主題推薦" class="text-blue-500 hover:underline">特色主題推薦</a></li>
-        <li><a href="#購物小提醒" class="text-blue-500 hover:underline">購物小提醒</a></li>
-        <li><a href="#飲食小提醒" class="text-blue-500 hover:underline">飲食小提醒</a></li>
-        <li><a href="#交通小提醒" class="text-blue-500 hover:underline">交通小提醒</a></li>
-        <li><a href="#文化禮儀小提醒" class="text-blue-500 hover:underline">文化禮儀小提醒</a></li>
-      </ol>
-    </nav>
-    <div class="main-content p-8">
+    </div>
+    <div class="content-container ml-auto p-8">
+      <!-- 內容部分 -->
       <h2 id="第1天" class="text-2xl font-semibold mt-8 mb-4">第1天</h2>
       <h3 id="松月洞童話村附近" class="text-xl font-semibold mb-2">松月洞童話村附近</h3>
       <ul class="list-disc ml-8 mb-4">
@@ -426,19 +418,12 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const sidebar = document.querySelector('.sidebar-mobile');
-      const button = document.querySelector('.fixed-button');
-
-      button.addEventListener('click', function () {
-        if (sidebar.classList.contains('hidden')) {
-          sidebar.classList.remove('hidden');
-        } else {
-          sidebar.classList.add('hidden');
-        }
-      });
+    document.getElementById('sidebarToggle').addEventListener('click', function () {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
     });
   </script>
+  
 </body>
 
 </html>
