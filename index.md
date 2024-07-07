@@ -1,4 +1,11 @@
-<link rel="icon" href="榛果繽紛樂.ico" type="image/x-icon">
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="榛果繽紛樂.ico" type="image/x-icon">
+</head>
+<body>
 
 # 首爾5天遊 - 綜合美食、購物與旅行指南
 
@@ -254,3 +261,5 @@
 10. 留意首爾的各種文化活動和節日，可能會豐富你的旅行體驗。
 
 希望這份全面的指南能夠幫助您在首爾度過一個愉快而充實的5天旅程。如果您還有任何其他問題或需要更多特定信息，請隨時告訴我。祝您旅途愉快，盡情享受首爾的美食、購物和文化體驗！
+</body>
+</html>
