@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="榛果繽紛樂.ico" type="image/x-icon">
-  <title>首爾5天遊 - 綜合美食、購物與旅行指南 - 榛果繽紛樂</title>
+  <title>首爾5日遊指南 - 榛果繽紛樂</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
@@ -18,6 +18,23 @@
 
     .content-container {
       max-width: 800px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* 僅限電腦 */
+    @media (min-width: 768px) {
+      .content-container {
+        padding-left: 8%;
+        padding-right: 8%;
+      }
+      .sidebar-open .content-container {
+        transform: translateX(250px);
+      }
+
+    }
+
+    .sidebar-open .sidebar {
+      transform: translateX(0);
     }
   </style>
 </head>
@@ -30,15 +47,17 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
-      <h1 class="text-2xl font-bold ml-4">首爾5天遊指南</h1>
+      <h1 class="text-2xl font-bold ml-4">首爾5日遊指南</h1>
     </div>
-    <a href="https://home.hazelnut-paradise.com" class="inline-flex items-center px-4 py-2 bg-white text-blue-500 text-sm font-medium rounded-md shadow-sm hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
+    <a href="https://home.hazelnut-paradise.com"
+      class="inline-flex items-center px-4 py-2 bg-white text-blue-500 text-sm font-medium rounded-md shadow-sm hover:bg-blue-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
       <img src="榛果繽紛樂logo.png" class="h-6 w-6 mr-2">
       榛果繽紛樂
     </a>
   </nav>
   <div class="flex pt-16">
-    <div id="sidebar" class="sidebar bg-gray-200 p-4 h-full fixed lg:relative lg:translate-x-0 transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <div id="sidebar"
+      class="sidebar bg-gray-200 p-4 h-full fixed transform -translate-x-full transition-transform duration-300 ease-in-out">
       <h2 class="text-xl font-semibold mb-4">目錄</h2>
       <ol class="list-decimal ml-8">
         <li><a href="#第1天" class="text-blue-500 hover:underline">第1天</a></li>
@@ -52,7 +71,7 @@
         <li><a href="#文化禮儀小提醒" class="text-blue-500 hover:underline">文化禮儀小提醒</a></li>
       </ol>
     </div>
-    <div class="content-container ml-auto p-8">
+    <main class="content-container p-8 transition-transform duration-300 ease-in-out">
       <h2 id="第1天" class="text-2xl font-semibold mt-8 mb-4">第1天</h2>
       <h3 id="松月洞童話村附近" class="text-xl font-semibold mb-2">松月洞童話村附近</h3>
       <ul class="list-disc ml-8 mb-4">
@@ -394,15 +413,18 @@
         <li>大多數韓國人的英語水平有限，學習一些基本的韓語短語會很有幫助。</li>
         <li>留意首爾的各種文化活動和節日，可能會豐富你的旅行體驗。</li>
       </ol>
-    </div>
+    </main>
   </div>
 
   <script>
     const sidebarToggle = document.getElementById('sidebarToggle');
     const sidebar = document.getElementById('sidebar');
+    const contentContainer = document.querySelector('.content-container');
+    const body = document.body;
 
     sidebarToggle.addEventListener('click', () => {
       sidebar.classList.toggle('-translate-x-full');
+      body.classList.toggle('sidebar-open');
     });
   </script>
 </body>
